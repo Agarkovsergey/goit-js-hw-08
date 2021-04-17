@@ -71,6 +71,7 @@ const modalClose = () => {
     bigPicture.src = '';
     bigPicture.alt = '';
     currentPage = '';
+    window.removeEventListener('keydown', handleCatchEventByKeyboard);
 }
 const handleCatchEventByMouseClose= (e) => {
     const target = e.target;
