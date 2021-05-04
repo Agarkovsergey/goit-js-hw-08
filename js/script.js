@@ -37,6 +37,22 @@ const handleCatchEventByKeyboard = e => {
     if (e.key === 'Escape'){
         modalClose();
     }
+    const data = {
+        src: null,
+        alt: null,
+    }
+    if (e.key === 'ArrowRight'){
+        currentPage >= cards.length - 1 ? currentPage = 0: currentPage++;
+        data.src = cards[currentPage].original;
+        data.alt = cards[currentPage].description;
+        useModalWithProps(data);
+    }
+    if (e.key === 'ArrowLeft'){
+        currentPage === 0 ? currentPage = cards.length-1: currentPage--;
+        data.src = cards[currentPage].original;
+        data.alt = cards[currentPage].description;
+        useModalWithProps(data);
+    }
 }
 const useModalWithProps = ({src, alt}) => {
     bigPicture.src = src;
